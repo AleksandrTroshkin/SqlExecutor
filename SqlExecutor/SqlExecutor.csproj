@@ -6,4 +6,25 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Update="Forms\FilesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Forms\AuthForm - Copy.resx">
+      <DependentUpon>AuthForm.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\FilesForm - Copy %282%29.resx">
+      <DependentUpon>FilesForm.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\FilesForm - Copy - Copy.resx">
+      <DependentUpon>FilesForm - Copy.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\FilesForm - Copy.resx">
+      <DependentUpon>FilesForm.resx</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>
