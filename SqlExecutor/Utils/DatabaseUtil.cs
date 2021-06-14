@@ -8,9 +8,9 @@ using System.Data;
 
 namespace SqlExecutor.Database
 {
-    public class DatabaseUtil
+    public static class DatabaseUtil
     {
-        private readonly string ConnectionString = "Data Source ={0}; Initial Catalog ={1}; User ID ={2}; Password={3}";
+        private const string ConnectionString = "Data Source ={0}; Initial Catalog ={1}; User ID ={2}; Password={3}";
 
         public static IReadOnlyList<string> DatabesesList(string dataSource)
         {

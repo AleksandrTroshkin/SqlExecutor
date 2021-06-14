@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SqlExecutor.Database;
+using SqlExecutor.Utils;
 
 namespace SqlExecutor
 {
@@ -20,6 +21,11 @@ namespace SqlExecutor
         public AuthForm()
         {
             InitializeComponent();
+
+            var authData = Settings.GetAuthData();
+            ServerTextBox.Text = authData.Server;
+            LoginTextBox.Text = authData.Login;
+            PasswordTextBox.Text = authData.Password;
         }
 
         private void ServerTextBox_TextChanged(object sender, EventArgs e)
@@ -39,7 +45,9 @@ namespace SqlExecutor
 
         private void SignInButton_Click(object sender, EventArgs e)
         {
+            Settings.SetAuthData(new AuthData(Server, Login, Password));
             var databases = DatabaseUtil.DatabesesList(Server);
+
             this.Hide();
             var form = new FilesForm(databases);
             form.Show();
