@@ -12,7 +12,7 @@ namespace SqlExecutor.Forms
 {
     public partial class ProcessForm : Form
     {
-        public ProcessForm()
+        public ProcessForm(string database, IReadOnlyList<string> files)
         {
             InitializeComponent();
         }

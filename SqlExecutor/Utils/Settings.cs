@@ -10,11 +10,11 @@ namespace SqlExecutor.Utils
     {
         public static AuthData GetAuthData()
             => new AuthData
-            {
-                Server = Properties.Settings.Default["server"].ToString(),
-                Login = Properties.Settings.Default["login"].ToString(),
-                Password = Properties.Settings.Default["password"].ToString()
-            };
+               {
+                   Server = Properties.Settings.Default["server"].ToString(),
+                   Login = Properties.Settings.Default["login"].ToString(),
+                   Password = Properties.Settings.Default["password"].ToString()
+               };
 
         public static void SetAuthData(AuthData data)
         {

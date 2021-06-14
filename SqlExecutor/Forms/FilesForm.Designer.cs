@@ -31,14 +31,14 @@ namespace SqlExecutor
         {
             this.SelectFilesLabel = new System.Windows.Forms.Label();
             this.SelectFolderLabel = new System.Windows.Forms.Label();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.OpenFilesDialog = new System.Windows.Forms.OpenFileDialog();
             this.FilesTextBox = new System.Windows.Forms.TextBox();
             this.FilesButton = new System.Windows.Forms.Button();
             this.FolderButton = new System.Windows.Forms.Button();
             this.FolderTextBox = new System.Windows.Forms.TextBox();
             this.IncludeCheckBox = new System.Windows.Forms.CheckBox();
             this.StartButton = new System.Windows.Forms.Button();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.FolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.DatabaseLabel = new System.Windows.Forms.Label();
             this.DatabaseComboBox = new System.Windows.Forms.ComboBox();
@@ -62,9 +62,11 @@ namespace SqlExecutor
             this.SelectFolderLabel.TabIndex = 1;
             this.SelectFolderLabel.Text = "Or select folder:";
             // 
-            // openFileDialog1
+            // OpenFilesDialog
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.OpenFilesDialog.FileName = "openFileDialog1";
+            this.OpenFilesDialog.Filter = "SQL files|*.sql";
+            this.OpenFilesDialog.Multiselect = true;
             // 
             // FilesTextBox
             // 
@@ -81,6 +83,7 @@ namespace SqlExecutor
             this.FilesButton.TabIndex = 4;
             this.FilesButton.Text = "Select";
             this.FilesButton.UseVisualStyleBackColor = true;
+            this.FilesButton.Click += new System.EventHandler(this.FilesButton_Click);
             // 
             // FolderButton
             // 
@@ -90,6 +93,7 @@ namespace SqlExecutor
             this.FolderButton.TabIndex = 6;
             this.FolderButton.Text = "Select";
             this.FolderButton.UseVisualStyleBackColor = true;
+            this.FolderButton.Click += new System.EventHandler(this.FolderButton_Click);
             // 
             // FolderTextBox
             // 
@@ -107,6 +111,7 @@ namespace SqlExecutor
             this.IncludeCheckBox.TabIndex = 7;
             this.IncludeCheckBox.Text = "Include subfolders";
             this.IncludeCheckBox.UseVisualStyleBackColor = true;
+            this.IncludeCheckBox.CheckedChanged += new System.EventHandler(this.IncludeCheckBox_CheckedChanged);
             // 
             // StartButton
             // 
@@ -116,6 +121,7 @@ namespace SqlExecutor
             this.StartButton.TabIndex = 8;
             this.StartButton.Text = "Start";
             this.StartButton.UseVisualStyleBackColor = true;
+            this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
             // DatabaseLabel
             // 
@@ -133,6 +139,7 @@ namespace SqlExecutor
             this.DatabaseComboBox.Name = "DatabaseComboBox";
             this.DatabaseComboBox.Size = new System.Drawing.Size(323, 28);
             this.DatabaseComboBox.TabIndex = 10;
+            this.DatabaseComboBox.SelectedIndexChanged += new System.EventHandler(this.DatabaseComboBox_SelectedIndexChanged);
             // 
             // FilesForm
             // 
@@ -160,14 +167,14 @@ namespace SqlExecutor
 
         private System.Windows.Forms.Label SelectFilesLabel;
         private System.Windows.Forms.Label SelectFolderLabel;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.OpenFileDialog OpenFilesDialog;
         private System.Windows.Forms.TextBox FilesTextBox;
         private System.Windows.Forms.Button FilesButton;
         private System.Windows.Forms.Button FolderButton;
         private System.Windows.Forms.TextBox FolderTextBox;
         private System.Windows.Forms.CheckBox IncludeCheckBox;
         private System.Windows.Forms.Button StartButton;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.FolderBrowserDialog FolderBrowserDialog;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label DatabaseLabel;
         private System.Windows.Forms.ComboBox DatabaseComboBox;
