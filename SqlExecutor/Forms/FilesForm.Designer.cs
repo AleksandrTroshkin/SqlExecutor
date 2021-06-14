@@ -39,12 +39,15 @@ namespace SqlExecutor
             this.IncludeCheckBox = new System.Windows.Forms.CheckBox();
             this.StartButton = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.DatabaseLabel = new System.Windows.Forms.Label();
+            this.DatabaseComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // SelectFilesLabel
             // 
             this.SelectFilesLabel.AutoSize = true;
-            this.SelectFilesLabel.Location = new System.Drawing.Point(12, 18);
+            this.SelectFilesLabel.Location = new System.Drawing.Point(12, 109);
             this.SelectFilesLabel.Name = "SelectFilesLabel";
             this.SelectFilesLabel.Size = new System.Drawing.Size(83, 20);
             this.SelectFilesLabel.TabIndex = 0;
@@ -53,7 +56,7 @@ namespace SqlExecutor
             // SelectFolderLabel
             // 
             this.SelectFolderLabel.AutoSize = true;
-            this.SelectFolderLabel.Location = new System.Drawing.Point(12, 113);
+            this.SelectFolderLabel.Location = new System.Drawing.Point(12, 204);
             this.SelectFolderLabel.Name = "SelectFolderLabel";
             this.SelectFolderLabel.Size = new System.Drawing.Size(114, 20);
             this.SelectFolderLabel.TabIndex = 1;
@@ -65,14 +68,14 @@ namespace SqlExecutor
             // 
             // FilesTextBox
             // 
-            this.FilesTextBox.Location = new System.Drawing.Point(12, 58);
+            this.FilesTextBox.Location = new System.Drawing.Point(12, 149);
             this.FilesTextBox.Name = "FilesTextBox";
             this.FilesTextBox.Size = new System.Drawing.Size(223, 27);
             this.FilesTextBox.TabIndex = 2;
             // 
             // FilesButton
             // 
-            this.FilesButton.Location = new System.Drawing.Point(241, 57);
+            this.FilesButton.Location = new System.Drawing.Point(241, 148);
             this.FilesButton.Name = "FilesButton";
             this.FilesButton.Size = new System.Drawing.Size(94, 29);
             this.FilesButton.TabIndex = 4;
@@ -81,7 +84,7 @@ namespace SqlExecutor
             // 
             // FolderButton
             // 
-            this.FolderButton.Location = new System.Drawing.Point(241, 146);
+            this.FolderButton.Location = new System.Drawing.Point(241, 237);
             this.FolderButton.Name = "FolderButton";
             this.FolderButton.Size = new System.Drawing.Size(94, 29);
             this.FolderButton.TabIndex = 6;
@@ -90,7 +93,7 @@ namespace SqlExecutor
             // 
             // FolderTextBox
             // 
-            this.FolderTextBox.Location = new System.Drawing.Point(12, 147);
+            this.FolderTextBox.Location = new System.Drawing.Point(12, 238);
             this.FolderTextBox.Name = "FolderTextBox";
             this.FolderTextBox.Size = new System.Drawing.Size(223, 27);
             this.FolderTextBox.TabIndex = 5;
@@ -98,7 +101,7 @@ namespace SqlExecutor
             // IncludeCheckBox
             // 
             this.IncludeCheckBox.AutoSize = true;
-            this.IncludeCheckBox.Location = new System.Drawing.Point(12, 191);
+            this.IncludeCheckBox.Location = new System.Drawing.Point(12, 282);
             this.IncludeCheckBox.Name = "IncludeCheckBox";
             this.IncludeCheckBox.Size = new System.Drawing.Size(152, 24);
             this.IncludeCheckBox.TabIndex = 7;
@@ -107,18 +110,37 @@ namespace SqlExecutor
             // 
             // StartButton
             // 
-            this.StartButton.Location = new System.Drawing.Point(120, 233);
+            this.StartButton.Location = new System.Drawing.Point(120, 324);
             this.StartButton.Name = "StartButton";
             this.StartButton.Size = new System.Drawing.Size(94, 29);
             this.StartButton.TabIndex = 8;
             this.StartButton.Text = "Start";
             this.StartButton.UseVisualStyleBackColor = true;
             // 
+            // DatabaseLabel
+            // 
+            this.DatabaseLabel.AutoSize = true;
+            this.DatabaseLabel.Location = new System.Drawing.Point(12, 18);
+            this.DatabaseLabel.Name = "DatabaseLabel";
+            this.DatabaseLabel.Size = new System.Drawing.Size(117, 20);
+            this.DatabaseLabel.TabIndex = 9;
+            this.DatabaseLabel.Text = "Select database:";
+            // 
+            // DatabaseComboBox
+            // 
+            this.DatabaseComboBox.FormattingEnabled = true;
+            this.DatabaseComboBox.Location = new System.Drawing.Point(12, 56);
+            this.DatabaseComboBox.Name = "DatabaseComboBox";
+            this.DatabaseComboBox.Size = new System.Drawing.Size(323, 28);
+            this.DatabaseComboBox.TabIndex = 10;
+            // 
             // FilesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(359, 281);
+            this.ClientSize = new System.Drawing.Size(359, 372);
+            this.Controls.Add(this.DatabaseComboBox);
+            this.Controls.Add(this.DatabaseLabel);
             this.Controls.Add(this.StartButton);
             this.Controls.Add(this.IncludeCheckBox);
             this.Controls.Add(this.FolderButton);
@@ -146,6 +168,9 @@ namespace SqlExecutor
         private System.Windows.Forms.CheckBox IncludeCheckBox;
         private System.Windows.Forms.Button StartButton;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Label DatabaseLabel;
+        private System.Windows.Forms.ComboBox DatabaseComboBox;
     }
 }
 

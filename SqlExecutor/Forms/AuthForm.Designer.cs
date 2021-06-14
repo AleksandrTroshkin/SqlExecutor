@@ -71,6 +71,7 @@ namespace SqlExecutor
             this.ServerTextBox.Name = "ServerTextBox";
             this.ServerTextBox.Size = new System.Drawing.Size(214, 27);
             this.ServerTextBox.TabIndex = 0;
+            this.ServerTextBox.TextChanged += new System.EventHandler(this.ServerTextBox_TextChanged);
             // 
             // PasswordTextBox
             // 
@@ -78,6 +79,7 @@ namespace SqlExecutor
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.Size = new System.Drawing.Size(214, 27);
             this.PasswordTextBox.TabIndex = 2;
+            this.PasswordTextBox.TextChanged += new System.EventHandler(this.PasswordTextBox_TextChanged);
             // 
             // LoginTextBox
             // 
@@ -85,6 +87,7 @@ namespace SqlExecutor
             this.LoginTextBox.Name = "LoginTextBox";
             this.LoginTextBox.Size = new System.Drawing.Size(214, 27);
             this.LoginTextBox.TabIndex = 1;
+            this.LoginTextBox.TextChanged += new System.EventHandler(this.LoginTextBox_TextChanged);
             // 
             // SignInButton
             // 
@@ -94,6 +97,7 @@ namespace SqlExecutor
             this.SignInButton.TabIndex = 3;
             this.SignInButton.Text = "Sign In";
             this.SignInButton.UseVisualStyleBackColor = true;
+            this.SignInButton.Click += new System.EventHandler(this.SignInButton_Click);
             // 
             // AuthForm
             // 

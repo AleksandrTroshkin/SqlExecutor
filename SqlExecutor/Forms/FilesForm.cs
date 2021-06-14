@@ -12,9 +12,10 @@ namespace SqlExecutor
 {
     public partial class FilesForm : Form
     {
-        public FilesForm()
+        public FilesForm(IReadOnlyList<string> databeses)
         {
             InitializeComponent();
+            DatabaseComboBox.Items.AddRange(databeses.ToArray());
         }
 
     }
