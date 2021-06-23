@@ -91,7 +91,7 @@ namespace SqlExecutor
             // 
             // SignInButton
             // 
-            this.SignInButton.Location = new System.Drawing.Point(68, 247);
+            this.SignInButton.Location = new System.Drawing.Point(64, 266);
             this.SignInButton.Name = "SignInButton";
             this.SignInButton.Size = new System.Drawing.Size(100, 36);
             this.SignInButton.TabIndex = 3;
@@ -103,7 +103,7 @@ namespace SqlExecutor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(238, 314);
+            this.ClientSize = new System.Drawing.Size(246, 314);
             this.Controls.Add(this.SignInButton);
             this.Controls.Add(this.LoginTextBox);
             this.Controls.Add(this.PasswordTextBox);

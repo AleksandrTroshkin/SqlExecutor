@@ -42,6 +42,8 @@ namespace SqlExecutor
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.DatabaseLabel = new System.Windows.Forms.Label();
             this.DatabaseComboBox = new System.Windows.Forms.ComboBox();
+            this.ErrorLabel = new System.Windows.Forms.Label();
+            this.BackButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SelectFilesLabel
@@ -115,7 +117,7 @@ namespace SqlExecutor
             // 
             // StartButton
             // 
-            this.StartButton.Location = new System.Drawing.Point(120, 324);
+            this.StartButton.Location = new System.Drawing.Point(122, 363);
             this.StartButton.Name = "StartButton";
             this.StartButton.Size = new System.Drawing.Size(94, 29);
             this.StartButton.TabIndex = 8;
@@ -141,11 +143,32 @@ namespace SqlExecutor
             this.DatabaseComboBox.TabIndex = 10;
             this.DatabaseComboBox.SelectedIndexChanged += new System.EventHandler(this.DatabaseComboBox_SelectedIndexChanged);
             // 
+            // ErrorLabel
+            // 
+            this.ErrorLabel.AutoSize = true;
+            this.ErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.ErrorLabel.Location = new System.Drawing.Point(12, 322);
+            this.ErrorLabel.Name = "ErrorLabel";
+            this.ErrorLabel.Size = new System.Drawing.Size(0, 20);
+            this.ErrorLabel.TabIndex = 11;
+            // 
+            // BackButton
+            // 
+            this.BackButton.Location = new System.Drawing.Point(12, 363);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(94, 29);
+            this.BackButton.TabIndex = 12;
+            this.BackButton.Text = "Back";
+            this.BackButton.UseVisualStyleBackColor = true;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            // 
             // FilesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(359, 372);
+            this.ClientSize = new System.Drawing.Size(359, 409);
+            this.Controls.Add(this.BackButton);
+            this.Controls.Add(this.ErrorLabel);
             this.Controls.Add(this.DatabaseComboBox);
             this.Controls.Add(this.DatabaseLabel);
             this.Controls.Add(this.StartButton);
@@ -178,6 +201,8 @@ namespace SqlExecutor
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label DatabaseLabel;
         private System.Windows.Forms.ComboBox DatabaseComboBox;
+        private System.Windows.Forms.Label ErrorLabel;
+        private System.Windows.Forms.Button BackButton;
     }
 }
 

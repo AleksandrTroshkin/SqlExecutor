@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SqlExecutor.Database;
 using SqlExecutor.Utils;
 
 namespace SqlExecutor
@@ -49,7 +48,7 @@ namespace SqlExecutor
             var databases = DatabaseUtil.DatabesesList(Server);
 
             this.Hide();
-            var form = new FilesForm(databases);
+            var form = new FilesForm(Server, Login, Password, databases);
             form.Show();
         }
     }

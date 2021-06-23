@@ -14,13 +14,21 @@ namespace SqlExecutor
 {
     public partial class FilesForm : Form
     {
+        private string Server { get; set; }
+        private string Login { get; set; }
+        private string Password { get; set; }
+
         private string Database { get; set; }
         private string[] FileNames { get; set; }
         private string Folder { get; set; }
         private bool Subfolders { get; set; }
 
-        public FilesForm(IReadOnlyList<string> databeses)
+        public FilesForm(string server, string login, string password, IReadOnlyList<string> databeses)
         {
+            Server = server;
+            Login = login;
+            Password = password;
+
             InitializeComponent();
             DatabaseComboBox.Items.AddRange(databeses.ToArray());
             DatabaseComboBox.SelectedItem = DatabaseComboBox.Items
@@ -58,11 +66,24 @@ namespace SqlExecutor
 
         private void StartButton_Click(object sender, EventArgs e)
         {
+            if (!DatabaseUtil.Check(Server, Database, Login, Password, out var error))
+            {
+                ErrorLabel.Text = error;
+                return;
+            }
+
             var files = Files.GetPaths(FileNames, Folder, Subfolders);
 
             this.Hide();
-            var form = new ProcessForm(Database, files);
+            var form = new ProcessForm(files);
             form.Show();
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            var form = new AuthForm();
+            form.Show();
+            this.Close();
         }
     }
 }
