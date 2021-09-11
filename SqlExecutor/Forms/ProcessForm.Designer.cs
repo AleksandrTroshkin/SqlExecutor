@@ -32,6 +32,9 @@ namespace SqlExecutor.Forms
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.StatusLabel = new System.Windows.Forms.Label();
             this.ProcessingListView = new System.Windows.Forms.ListView();
+            this.PathHeader = new System.Windows.Forms.ColumnHeader();
+            this.FIlenameHeader = new System.Windows.Forms.ColumnHeader();
+            this.StatusHeader = new System.Windows.Forms.ColumnHeader();
             this.SuspendLayout();
             // 
             // progressBar1
@@ -52,12 +55,30 @@ namespace SqlExecutor.Forms
             // 
             // ProcessingListView
             // 
+            this.ProcessingListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.PathHeader,
+            this.FIlenameHeader,
+            this.StatusHeader});
+            this.ProcessingListView.GridLines = true;
             this.ProcessingListView.HideSelection = false;
             this.ProcessingListView.Location = new System.Drawing.Point(12, 62);
             this.ProcessingListView.Name = "ProcessingListView";
             this.ProcessingListView.Size = new System.Drawing.Size(776, 376);
             this.ProcessingListView.TabIndex = 2;
             this.ProcessingListView.UseCompatibleStateImageBehavior = false;
+            this.ProcessingListView.View = System.Windows.Forms.View.Details;
+            // 
+            // PathHeader
+            // 
+            this.PathHeader.Text = "Path";
+            // 
+            // FIlenameHeader
+            // 
+            this.FIlenameHeader.Text = "Filename";
+            // 
+            // StatusHeader
+            // 
+            this.StatusHeader.Text = "Status";
             // 
             // ProcessForm
             // 
@@ -79,5 +100,8 @@ namespace SqlExecutor.Forms
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label StatusLabel;
         private System.Windows.Forms.ListView ProcessingListView;
+        private System.Windows.Forms.ColumnHeader PathHeader;
+        private System.Windows.Forms.ColumnHeader FIlenameHeader;
+        private System.Windows.Forms.ColumnHeader StatusHeader;
     }
 }

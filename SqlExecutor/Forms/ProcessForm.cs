@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SqlExecutor.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,30 @@ namespace SqlExecutor.Forms
 {
     public partial class ProcessForm : Form
     {
-        public ProcessForm(string database, IReadOnlyList<string> files)
+        private string Server { get; set; }
+        private string Login { get; set; }
+        private string Password { get; set; }
+        private string Database { get; set; }
+        private string[] Paths { get; set; }
+
+        public ProcessForm(string server, string database, string login, string password, IReadOnlyList<string> paths)
         {
             InitializeComponent();
+            Server = server;
+            Database = database;
+            Login = login;
+            Password = password;
+            Paths = paths.ToArray();
+
+            Work();
+        }
+
+        private void Work()
+        {
+            var logger = new ListViewLogger(ProcessingListView);
+            var worker = new Worker(Server, Database, Login, Password, logger);
+            worker.Execute(Paths);
+            StatusLabel.Text = "DONE";
         }
     }
 }

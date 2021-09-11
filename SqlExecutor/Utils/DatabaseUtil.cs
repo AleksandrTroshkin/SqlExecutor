@@ -20,8 +20,8 @@ namespace SqlExecutor.Utils
                 con.Open();
                 using var cmd = new SqlCommand("SELECT name from sys.databases", con);
                 using var dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                        list.Add(dr[0].ToString());
+                while (dr.Read())
+                    list.Add(dr[0].ToString());
             }
             return list;
         }
@@ -45,23 +45,47 @@ namespace SqlExecutor.Utils
             }
         }
 
-        public static void Execute(string server, string databese, string name, string password, string filename)
+        public static void Execute(string server, string databese, string name, string password, string filename,
+            out string error)
         {
+            error = null;
             var connectionString = string.Format(ConnectionString, server, databese, name, password);
             try
             {
                 var sql = File.ReadAllText(filename);
+                var query = PrepareQuery(sql);
                 using (var con = new SqlConnection(connectionString))
                 {
                     con.Open();
-                    using (var command = new SqlCommand(sql, con))
+                    using (var command = new SqlCommand(query, con))
                         command.ExecuteNonQuery();
                 }
             }
             catch (SqlException se)
             {
-
+                error = se.Message;
+                return;
             }
+        }
+
+        private static string PrepareQuery(string sql)
+        {
+            var usePattern = "use [";
+            var goPattern = "go\r\n";
+
+            // remove "USE [...] GO"
+            var toLower = sql.ToLower();
+            if (toLower.StartsWith(usePattern))
+            {
+                var goIndex = toLower.IndexOf(goPattern);
+                sql = sql.Remove(0, goIndex + 2);
+            }
+
+            // remove all "GO"
+            sql = sql.Replace("GO", string.Empty);
+            sql = sql.Replace("go", string.Empty);
+
+            return sql;
         }
     }
 }

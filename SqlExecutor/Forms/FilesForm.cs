@@ -72,10 +72,10 @@ namespace SqlExecutor
                 return;
             }
 
-            var files = Files.GetPaths(FileNames, Folder, Subfolders);
+            var paths = Files.GetPaths(FileNames, Folder, Subfolders);
 
             this.Hide();
-            var form = new ProcessForm(files);
+            var form = new ProcessForm(Server, Database, Login, Password, paths);
             form.Show();
         }
 
